@@ -1,9 +1,9 @@
 import discord
 import asyncio
 
-TOKEN = 'MTE5ODQ0NzQxNTIxMzE2Njg0NA.GRRo5d.CwnFwEN5WKFxMMN3x9Td3TTZzRKfYYE3NIlkfA'
+TOKEN = 'Token'
 
-intents = discord.Intents.default()  # Enable the default intents
+intents = discord.Intents.default()
 bot = discord.Client(intents=intents)
 
 @bot.event
