@@ -62,7 +62,7 @@ def add_commands():
                     "name": "governor_id",
                     "description": "The governor ID",
                     "required": True,
-                    "type": 4,  # require a INTEGER INPUT (ID)
+                    "type": 4,
                 },
             ],
         },
@@ -73,7 +73,6 @@ def add_commands():
         },
     ]
     for cmd in cmds:
-        # This creates or update the slash commands
         response = requests.post(URL_BASE, headers=HEADERS_BASE, json=cmd)
         if response.status_code >= 400:
             print(response.content)
