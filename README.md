@@ -7,13 +7,13 @@ A multifunctional Discord bot built with Python, designed to fetch and visualize
 - 📊 **Google Sheets Integration**  
   Retrieves dynamic data based on user input (IDs, stats, etc.).
 
-- 🖼️ **Image Output with Data Overlay = WORK IN PROGRESS**
+- 🖼️ **Image Output with Data Overlay = WORK IN PROGRESS**  
   Generates custom images displaying retrieved data using the PIL (Pillow) library.
 
 - 🧠 **User ID Tracking**  
   Uses Redis to cache and associate user-specific IDs for easier access.
 
-- 📉 **Custom Progress Bars = WORK IN PROGRESS**
+- 📉 **Custom Progress Bars = WORK IN PROGRESS**  
   Visualizes statistics like kill/dead ratios using dynamically generated progress bars.
 
 - ⚙️ **Command-Based Interaction**  
