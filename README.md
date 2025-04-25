@@ -9,6 +9,7 @@ A multifunctional Discord bot built with Python, designed to fetch and visualize
 
 - 🖼️ **Image Output with Data Overlay**  = WORK IN PROGRESS
 
+
   Generates custom images displaying retrieved data using the PIL (Pillow) library.
 
 - 🧠 **User ID Tracking**  
