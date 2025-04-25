@@ -21,18 +21,14 @@ class KvK:
 
         if len(self.data) > 0:
             first_row = self.data[0]
-            # we are looking for column using date format like Month/Date/Year
             idx_fields_dates = [
                 i for i, h in enumerate(first_row) if re.search("^\d+/\d+/\d+$", h)
             ]
             len_idx_fields_dates = len(idx_fields_dates)
             if len_idx_fields_dates > 0:
-                # We keep only the last range of data from the last date registered
                 self.last_idx_fields_date = idx_fields_dates[len_idx_fields_dates - 1]
                 self.last_fields_headers = first_row[self.last_idx_fields_date :]
 
-            # sort by TOTAL SCORE column to get the kingdom rank
-            # last column shoul be the total score
             self.data_sorted = sorted(
                 self.data[1:],
                 key=lambda gov: int(gov[len(gov) - 1].replace(",", "")),
@@ -41,7 +37,6 @@ class KvK:
 
             total_governors = len(self.data_sorted)
 
-            # dictionary of governors by ID (first column r[0] presumed from google sheets)
             self.governors = {
                 r[0]: r + [f"{i+1}/{total_governors}"]
                 for i, r in enumerate(self.data_sorted)
@@ -57,8 +52,6 @@ class KvK:
         if self.last_idx_fields_date is None or self.governors is None:
             return None
         gov_id_str = str(gov_id)
-        # first column presumed ID
-        # second column presumed Name
         governor = self.governors.get(gov_id_str, None)
         if governor is None:
             return
