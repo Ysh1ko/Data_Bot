@@ -71,41 +71,6 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="/", intents=intents, help_command=None)
 
-def get_chart_url(progress=0):
-    qc = QuickChart()
-    qc.width = 500
-    qc.height = 300
-    qc.version = "2.9.4"
-    qc.config = """{
-        type: 'gauge',
-        data: {
-            datasets: [
-            {
-                value: %i,
-                data: [50, 100, 150, 200],
-                backgroundColor: ['#D64545', '#4098D7', '#3EBD93', 'black'],
-                borderWidth: 2,
-            },
-            ],
-        },
-        options: {
-            valueLabel: {
-            fontSize: 24,
-            backgroundColor: 'transparent',
-            color: '#000',
-            formatter: function (value, context) {
-                return %i + ' %%';
-            },
-            bottomMarginPercentage: 10,
-            },
-        },
-        }""" % (
-        progress if progress <= 200 else 200,
-        progress,
-    )
-    return qc.get_url()
-
-
 async def get_id_from_store(
         authorid: str, gov_id: Optional[int] = None
 ) -> Optional[int]:
@@ -178,7 +143,6 @@ async def get_stat_governor_id(
 async def stat(ctx):
     interaction: discord.Interaction = ctx.interaction
     data = interaction.data
-    # for the stats command, with only have one option (PLAYER ID)
     options = data["options"]
     option = options[0]
     value = option["value"]
@@ -187,7 +151,6 @@ async def stat(ctx):
     try:
         gov_id = int(value)
     except Exception as e:
-        # maybe not a valid player ID
         print(e)
 
     if gov_id is None:
@@ -203,7 +166,6 @@ async def top(ctx):
     interaction: discord.Interaction = ctx.interaction
     ranking = KvK().get_top_governors(top=100)
 
-    # Sort the ranking list by 'score' in descending order
     ranking = sorted(ranking, key=lambda x: x['score'], reverse=True)
 
     chunked_list = []
