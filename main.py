@@ -12,11 +12,11 @@ from typing import Optional
 from gsheets import KvK
 
 store = aioredis.from_url(
-    "redis://redis-13465.c13.us-east-1-3.ec2.redns.redis-cloud.com",
-    encoding="utf-8",
+    "LINK",
+    encoding="ENCODING",
     decode_responses=True,
-    port=13465,
-    password="71JcT9D0oqz6jxFHoqWcQkBGhd2dMOru"
+    port=PORT,
+    password="PW"
 )
 
 load_dotenv()
