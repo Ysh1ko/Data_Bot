@@ -15,11 +15,11 @@ import io
 import re
 
 store = aioredis.from_url(
-    "redis://redis-13465.c13.us-east-1-3.ec2.redns.redis-cloud.com",
+    "link",
     encoding="utf-8",
     decode_responses=True,
-    port=13465,
-    password="71JcT9D0oqz6jxFHoqWcQkBGhd2dMOru"
+    port=port,
+    password="PW"
 )
 
 load_dotenv()
